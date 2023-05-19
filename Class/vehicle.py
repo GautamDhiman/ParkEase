@@ -1,10 +1,10 @@
 
 class Vehicle:
 
-    def __init__(self, identifier, vehicle_type, assigned_lot=None):
+    def __init__(self, identifier, vehicle_type):
         self.identifier = identifier
         self.vehicle_type = vehicle_type
-        self.assigned_lot = assigned_lot
+        self.assigned_lot = None
 
     def get_lot_number(self):
         return self.assigned_lot
