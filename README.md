@@ -2,7 +2,16 @@
 Parking Lot app
 
 ## Getting Started
-- python main.py
+```bash
+git clone
+cd ParkEase
+python3 main.py
+```
+
+## Supported features
+- park
+- retrieve parking spot by vehicle number
+- unpark vehicle
 
 ## project structure
 ```
