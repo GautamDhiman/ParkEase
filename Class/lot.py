@@ -1,9 +1,13 @@
 
 class ParkingLot:
     def __init__(self, levels, capacity_per_level):
-        self.levels = {level: [None] * capacity_per_level for level in levels}
+        self.levels = {}
         self.vehicle_parking_dict = {}
-        self.free_spots = {level: capacity_per_level for level in levels}
+        self.free_spots = {}
+
+        for level in levels:
+            self.levels[level] = [None] * capacity_per_level
+            self.free_spots[level] = capacity_per_level
 
     def park_vehicle(self, vehicle):
         for level, parking_spots in self.levels.items():
