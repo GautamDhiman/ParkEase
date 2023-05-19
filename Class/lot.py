@@ -18,7 +18,12 @@ class ParkingLot:
         return None
 
     def retrieve_parking_spot(self, vehicle_identifier):
-        pass
+
+        if vehicle_identifier in self.vehicle_parking_dict:
+            return self.vehicle_parking_dict[vehicle_identifier]
+        else:
+            return None
+
 
     def unpark_vehicle(self, vehicle_identifier):
         pass

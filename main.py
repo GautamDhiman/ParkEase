@@ -26,7 +26,13 @@ def main():
                 print("\nVehicle parked at level: {}, spot: {}".format(lot_number['level'], lot_number['spot']))
 
         elif choice == '2':
-            pass
+            vehicle_identifier = input("Enter vehicle identifier: ")
+            result = parking_lot.retrieve_parking_spot(vehicle_identifier)
+
+            if result:
+                print("\n" + result)
+            else:
+                print("\nVehicle not found")
 
         elif choice == '3':
             break
