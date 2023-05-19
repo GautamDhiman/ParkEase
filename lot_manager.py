@@ -19,31 +19,40 @@ class ParkingLotManager:
             choice = input("Enter your choice (1-4): ")
 
             if choice == '1':
-                vehicle_identifier = input("Enter vehicle identifier: ")
-                vehicle = Car(vehicle_identifier)
-                lot_number = self.parking_lot.park_vehicle(vehicle)
-
-                if lot_number is None:
-                    print("\nSorry, parking lot is full")
-                else:
-                    print("\n" + str(lot_number))
+                self.__park_vehicle()
 
             elif choice == '2':
-                vehicle_identifier = input("Enter vehicle identifier: ")
-                result = self.parking_lot.retrieve_parking_spot(vehicle_identifier)
-
-                if result:
-                    print("\n" + str(result))
-                else:
-                    print("\nVehicle not found")
+                self.__retrieve_parking_spot()
 
             elif choice == '3':
-                vehicle_identifier = input("Enter vehicle identifier: ")
-                result = self.parking_lot.unpark_vehicle(vehicle_identifier)
-
-                if result:
-                    print("\nVehicle unparked from " + str(result))
-                else:
-                    print("\nVehicle not found")
+                self.__unpark_vehicle()
             else:
                 break
+
+    def __park_vehicle(self):
+        vehicle_identifier = input("Enter vehicle identifier: ")
+        vehicle = Car(vehicle_identifier)
+        lot_number = self.parking_lot.park_vehicle(vehicle)
+
+        if lot_number is None:
+            print("\nSorry, parking lot is full")
+        else:
+            print("\n" + str(lot_number))
+
+    def __unpark_vehicle(self):
+        vehicle_identifier = input("Enter vehicle identifier: ")
+        result = self.parking_lot.unpark_vehicle(vehicle_identifier)
+
+        if result:
+            print("\nVehicle unparked from " + str(result))
+        else:
+            print("\nVehicle not found")
+
+    def __retrieve_parking_spot(self):
+        vehicle_identifier = input("Enter vehicle identifier: ")
+        result = self.parking_lot.retrieve_parking_spot(vehicle_identifier)
+
+        if result:
+            print("\n" + str(result))
+        else:
+            print("\nVehicle not found")
