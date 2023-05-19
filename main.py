@@ -1,6 +1,8 @@
+
 from Class import Car, ParkingLot
 
 def main():
+
     levels = ['A', 'B']
     capacity_per_level = 20
 
@@ -14,7 +16,14 @@ def main():
         choice = input("Enter your choice (1-4): ")
 
         if choice == '1':
-            pass
+            vehicle_identifier = input("Enter vehicle identifier: ")
+            vehicle = Car(vehicle_identifier)
+            lot_number = parking_lot.park_vehicle(vehicle)
+
+            if lot_number is None:
+                print("Sorry, parking lot is full")
+            else:
+                print("Vehicle parked at level: {}, spot: {}".format(lot_number['level'], lot_number['spot']))
         elif choice == '2':
             pass
 
