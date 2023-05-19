@@ -26,7 +26,19 @@ class ParkingLot:
 
 
     def unpark_vehicle(self, vehicle_identifier):
-        pass
+
+        if vehicle_identifier in self.vehicle_parking_dict:
+            parking_info = self.vehicle_parking_dict[vehicle_identifier]
+            level = parking_info['level']
+            spot = parking_info['spot']
+
+            self.levels[level][spot - 1] = None
+            del self.vehicle_parking_dict[vehicle_identifier]
+            self.free_spots[level] += 1
+
+            return {'level': level, 'spot': spot}
+        else:
+            return False
 
     def get_free_spots(self):
         return self.free_spots
