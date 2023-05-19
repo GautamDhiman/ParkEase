@@ -7,9 +7,9 @@ class Vehicle:
         self.assigned_lot = assigned_lot
 
     def get_lot_number(self):
-        return self.lot_number
+        return self.assigned_lot
 
     def set_lot_number(self, lot_number):
-        self.lot_number = lot_number
+        self.assigned_lot = lot_number
 
 
