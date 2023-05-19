@@ -21,9 +21,10 @@ def main():
             lot_number = parking_lot.park_vehicle(vehicle)
 
             if lot_number is None:
-                print("Sorry, parking lot is full")
+                print("\nSorry, parking lot is full")
             else:
-                print("Vehicle parked at level: {}, spot: {}".format(lot_number['level'], lot_number['spot']))
+                print("\nVehicle parked at level: {}, spot: {}".format(lot_number['level'], lot_number['spot']))
+
         elif choice == '2':
             pass
 
