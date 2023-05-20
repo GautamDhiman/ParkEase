@@ -13,6 +13,13 @@ python3 main.py
 - retrieve parking spot by vehicle number
 - unpark vehicle
 
+## Commands
+```bash
+- park <vehicle_identifier> ## assign slot to vehicle
+- get <vehicle_identifier> ## get assigned slot for vehicle
+- unpark <vehicle_identifier> ## remove vehicle from slot
+```
+
 ## project structure
 ```
 ├── README.md
