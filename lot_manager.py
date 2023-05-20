@@ -11,26 +11,23 @@ class ParkingLotManager:
     def run(self):
 
         while True:
-            print("\n1. Park vehicle")
-            print("2. Get lot number for vehicle")
-            print("3. unpark vehicle")
-            print("4. Exit")
+            command = input("$> ")
 
-            choice = input("Enter your choice (1-4): ")
+            if command.startswith('park'):
+                vehicle_identifier = command.split(' ')[1]
+                self.__park_vehicle(vehicle_identifier)
 
-            if choice == '1':
-                self.__park_vehicle()
+            elif command.startswith('get'):
+                vehicle_identifier = command.split(' ')[1]
+                self.__retrieve_parking_spot(vehicle_identifier)
 
-            elif choice == '2':
-                self.__retrieve_parking_spot()
-
-            elif choice == '3':
-                self.__unpark_vehicle()
+            elif command.startswith('unpark'):
+                vehicle_identifier = command.split(' ')[1]
+                self.__unpark_vehicle(vehicle_identifier)
             else:
                 break
 
-    def __park_vehicle(self):
-        vehicle_identifier = input("Enter vehicle identifier: ")
+    def __park_vehicle(self, vehicle_identifier):
         vehicle = Car(vehicle_identifier)
         lot_number = self.parking_lot.park_vehicle(vehicle)
 
@@ -39,8 +36,7 @@ class ParkingLotManager:
         else:
             print("\n" + str(lot_number))
 
-    def __unpark_vehicle(self):
-        vehicle_identifier = input("Enter vehicle identifier: ")
+    def __unpark_vehicle(self, vehicle_identifier):
         result = self.parking_lot.unpark_vehicle(vehicle_identifier)
 
         if result:
@@ -48,8 +44,7 @@ class ParkingLotManager:
         else:
             print("\nVehicle not found")
 
-    def __retrieve_parking_spot(self):
-        vehicle_identifier = input("Enter vehicle identifier: ")
+    def __retrieve_parking_spot(self, vehicle_identifier):
         result = self.parking_lot.retrieve_parking_spot(vehicle_identifier)
 
         if result:
